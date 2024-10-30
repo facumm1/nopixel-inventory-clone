@@ -1,0 +1,796 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+$mainColor: #22232c;
+$textColor: #c1c2c5;
+$mainFont: Roboto;
+
+$secondaryColor: rgba(12, 12, 12, 0.4);
+$secondaryColorHighlight: #33343F;
+$secondaryColorLight: rgba(0, 0, 0, 0.5);
+$secondaryColorDark: rgba(12, 12, 12, 0.8);
+
+$gridCols: 5;
+$gridRows: 5;
+$gridSize: 10.2vh;
+$gridGap: 2px;
+$containerSize: calc(#{$gridRows} * #{$gridSize + 0.22vh} + #{$gridRows} * #{$gridGap});
+
+$colorTurquoise: rgb(52, 234, 197);
+$colorDarkTurqoise: rgb(8, 74, 61);
+$colorDarkGray: rgb(102, 102, 102);
+$colorDarkBlue: rgb(10, 12, 16);
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  background: none !important;
+  overflow: hidden !important;
+  user-select: none;
+}
+
+#root {
+  height: 100%;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  font-family: $mainFont;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.app-wrapper {
+  height: 100%;
+  width: 100%;
+  color: white;
+  background-color: rgba(10, 12, 16, 0.95);
+}
+
+.context-menu-list {
+  min-width: 200px;
+  background-color: $mainColor;
+  color: $textColor;
+  padding: 4px;
+  border-color: rgba(0, 0, 0, 0.2);
+  border-style: inset;
+  border-width: 1px;
+  border-radius: 4px;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.context-menu-item  {
+  padding: 8px;
+  border-radius: 4px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: $textColor;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &:active {
+    transform: none;
+  }
+  &:hover {
+    background-color: $secondaryColorHighlight;
+    cursor: pointer;
+  }
+}
+
+.tooltip-description {
+  padding-top: 5px;
+}
+
+.tooltip-markdown > p {
+  margin: 0;
+}
+
+button:active {
+  transform: translateY(3px);
+}
+
+.item-drag-preview {
+  width: 7.7vh;
+  height: 7.7vh;
+  z-index: 1;
+  position: fixed;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 7vh;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+.inventory-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  height: 100%;
+
+  gap: 20px;
+}
+
+// Inventory information (SHADOW-REAPER, YOUR INVENTORY CSS STARTS HERE)
+
+.inventory_information {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  width: 20vw;
+}
+
+.exit_box {
+  display: flex;
+  flex-direction: row;
+  margin: 75px 0 25px 0;
+}
+
+.exit {
+  padding: 5px 15px;
+  border: 1px solid rgba(255, 254, 254,0.1);
+  font-size: 14px;
+}
+
+.escape {
+  padding: 5px 15px;
+  background-color: rgba(255, 254, 254,0.1);
+  font-size: 14px;
+}
+
+.title_box {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+}
+
+.body-text {
+  font-family: $mainFont;
+  color: $colorTurquoise;
+  font-weight: 600;
+}
+
+.body-weight {
+  font-size: 14px;
+}
+
+.body-icon {
+  width: 1.3rem;
+  height: 1.3rem;
+  position: absolute;
+}
+
+.body_icon_box {
+    display: block;
+	  position: static;
+    width: 3rem;
+    height: 3rem;
+	  left: 3%;
+	  top: 14.7%;
+	  text-align: center;
+	  font-size: 23px;
+    background: url(https://i.ibb.co/b27LQT8/image.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.body_icon_box::before {
+    content: ' ';
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+    display: block;
+    background-image: url(https://i.ibb.co/x2Gx1B4/image.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+// Icon player
+.body_icon_box::after {
+    content: ' ';
+    position: absolute;
+    width: 1.3rem;
+    height: 1.3rem;
+    display: block;
+    color: #00f8b9;
+    left: 3.5%;
+	  top: 28%;
+    font-size: 1rem;
+    background-image:url(https://i.ibb.co/0m2QTn3/image.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+// Body image
+.body-image {
+    width: 248px;
+    height: 478px;
+}
+
+.character-tracers {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.character-tracers .bar {
+  width: 5.5rem;
+  height: 0.35rem;
+  border: 0.5px solid rgb(45, 45, 45);
+  border-radius: 3px;
+}
+
+.character-tracers .bar .progress {
+  width: 100%;
+  height: 100%;
+  background: #a7575c;
+  border-radius: 3px;
+}
+
+.body-part {  
+  color: #f1f1f1;
+  font-size: 0.74rem;
+  text-align: center;
+  align-self: flex-start;
+}
+
+.part {
+  display: flex;
+  flex-direction: column;
+}
+
+.left-leg {
+  position: absolute;
+  bottom: 1%;
+  left: 56%;
+}
+
+.right-leg {
+  position: absolute;
+  bottom: 1%;
+  left: 15%;
+}
+
+.body {
+  position: absolute;
+  bottom: 55%;
+  left: 45%;
+}
+
+.right-arm {
+  position: absolute;
+  top: 23%;
+  left: 8%;
+}
+
+.left-arm {
+  position: absolute;
+  top: 13%;
+  right: 3%;
+}
+
+.head {
+  position: absolute;
+  top: -2%;
+  right: 14%;
+}
+
+// Player information
+
+.personal-title-box {
+  display: flex;
+  align-items: center;
+}
+
+.personal-title-item {
+  width: 7.5px;
+  height: 7.5px;
+  border-radius: 2px;
+  margin-right: 10px;
+  background-color: #2debba;
+}
+
+.personal-title {
+  font-family: $mainFont;
+}
+
+// Left inventory
+
+.player-inventory-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+	position: static;
+	width: 50px;
+	height: 50px;
+	/* padding: 9.5px;
+	right: 66.2%;
+	top: 14.7%; */
+	text-align: center;
+	/* font-size: 23px; */
+	color: #31d4a9;
+  background: url(https://i.ibb.co/x2Gx1B4/image.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+/* .player-inventory-icon:after {
+  content:' ';
+  position: absolute;
+  width: 1.3rem;
+  height: 1.3rem;
+  padding: 9.5px;
+  right: 26%;
+  top: 27%;
+} */
+
+/* .player-inventory-icon:before {
+    content:' ';
+	position: absolute;
+	width: 3rem;
+	height: 3rem;
+	padding: 9.5px;
+	right: 0%;
+	top: -15%;
+    background: url(https://i.ibb.co/b27LQT8/image.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+} */
+
+/* _________________________________ end of inv */
+
+.inventory-control {
+  display: flex;
+
+  .inventory-control-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .inventory-control-input {
+    transition: 200ms;
+    padding: 16px 8px;
+    border-radius: 2.5%;
+    font-family: $mainFont;
+    font-size: 16px;
+    text-align: center;
+    outline: none;
+    border: none;
+    color: #fff;
+    background-color: $secondaryColor;
+    &:focus-within {
+      background-color: $secondaryColorDark;
+    }
+  }
+
+  .inventory-control-button {
+    font-size: 14px;
+    color: #fff;
+    background-color: $secondaryColor;
+    transition: 200ms;
+    padding: 12px 8px;
+    border-radius: 2.5%;
+    border: none;
+    text-transform: uppercase;
+    font-family: $mainFont;
+    width: 100%;
+    font-weight: 500;
+    &:hover {
+      background-color: $secondaryColorDark;
+    }
+  }
+}
+
+.useful-controls-dialog {
+  background-color: $mainColor;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: $textColor;
+  width: 450px;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  border-radius: 4px;
+  gap: 16px;
+}
+
+.useful-controls-dialog-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.useful-controls-dialog-title {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+}
+
+.useful-controls-dialog-close {
+  width: 25px;
+  height: 25px;
+  padding: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  fill: $textColor;
+  &:hover {
+    background-color: $secondaryColorHighlight;
+    cursor: pointer;
+  }
+}
+
+.useful-controls-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.useful-controls-button {
+  position: absolute !important;
+  bottom: 25px;
+  right: 25px;
+  transition: 200ms !important;
+  border: none;
+  color: white;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  fill: white;
+  border-radius: 5% !important;
+  background-color: $secondaryColor !important;
+  &:hover {
+    background-color: $secondaryColorDark !important;
+    cursor: pointer;
+  }
+}
+
+.useful-controls-exit-button {
+  position: absolute !important;
+  right: 8px;
+  top: 8px;
+  border-radius: 2.5% !important;
+  color: grey !important;
+}
+
+// Dialog is used fro useful controls window
+
+
+// inventory grids
+.inventory-grid-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 125px;
+  gap: calc($gridGap * 2);
+}
+
+.inventory-grid-header-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  p {
+    font-size: 16px;
+  }
+}
+
+.inventory-grid-container {
+  display: grid;
+  height: $containerSize;
+  grid-template-columns: repeat($gridCols, $gridSize);
+  grid-auto-rows: $gridSize + 0.22vh;
+  gap: $gridGap;
+  overflow-y: scroll;
+}
+
+// inventory slots
+.inventory-slot {
+  background-color: $secondaryColor;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 2.5%;
+  image-rendering: -webkit-optimize-contrast;
+  position: relative;
+  background-size: 7vh;
+  color: $textColor;
+  border-color: rgba(0, 0, 0, 0.2);
+  border-style: inset;
+  border-width: 1px;
+}
+
+.inventory-slot-label-box {
+  background-color: $mainColor;
+  color: $textColor;
+  text-align: center;
+  border-bottom-left-radius: 0.25vh;
+  border-bottom-right-radius: 0.25vh;
+  border-top-color: rgba(224, 197, 197, 0.2);
+  border-top-style: inset;
+  border-top-width: 1px;
+}
+
+.inventory-slot-label-text {
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 2px 3px;
+  font-weight: 400;
+  font-family: $mainFont;
+  font-size: 12px;
+  background-color: $colorTurquoise;
+}
+
+.inventory-slot-number {
+  background-color: #002A24;
+  color: black;
+  height: 12px;
+  border-top-left-radius: 0.25vh;
+  border-bottom-right-radius: 0.25vh;
+  padding: 3px;
+  font-size: 12px;
+  font-family: $mainFont;
+}
+
+.item-slot-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  p {
+    font-size: 12px;
+  }
+}
+
+.item-slot-header-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.item-hotslot-header-wrapper {
+  @extend .item-slot-header-wrapper;
+  justify-content: space-between !important;
+}
+
+.item-slot-info-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-self: flex-end;
+  padding: 3px;
+  gap: 3px;
+  p {
+    font-size: 12px;
+  }
+}
+
+.item-slot-currency-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 3px;
+  p {
+    font-size: 14px;
+    text-shadow: 0.1vh 0.1vh 0 rgba(0, 0, 0, 0.7);
+  }
+}
+
+.item-slot-price-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-right: 3px;
+  p {
+    font-size: 14px;
+    text-shadow: 0.1vh 0.1vh 0 rgba(0, 0, 0, 0.7);
+  }
+}
+
+
+.tooltip-wrapper {
+  pointer-events: none;
+  display: flex;
+  background-color: $mainColor;
+  width: 200px;
+  padding: 8px;
+  flex-direction: column;
+  min-width: 200px;
+  color: $textColor;
+  font-family: $mainFont;
+  border-radius: 4px;
+  border-color: rgba(0, 0, 0, 0.2);
+  border-style: inset;
+  border-width: 1px;
+  p {
+    font-size: 12px;
+    font-weight: 400;
+  }
+}
+
+.tooltip-header-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  p {
+    font-size: 15px;
+    font-weight: 400;
+  }
+}
+
+.tooltip-crafting-duration {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  svg {
+    padding-right: 3px;
+  }
+  p {
+    font-size: 14px;
+  }
+}
+
+.tooltip-ingredients {
+  padding-top: 5px;
+}
+
+.tooltip-ingredient {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  img {
+    width: 28px;
+    height: 28px;
+    padding-right: 5px;
+  }
+}
+
+// hotbar
+.hotbar-container {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  justify-content: center;
+  width: 100%;
+  position: absolute;
+  bottom: 2vh;
+}
+
+.hotbar-item-slot {
+  @extend .inventory-slot;
+  width: $gridSize;
+  height: $gridSize;
+}
+
+.hotbar-slot-header-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+// item notifications
+
+.item-notification-container {
+  display: flex;
+  overflow-x: scroll;
+  flex-wrap: nowrap;
+  gap: 2px;
+  position: absolute;
+  bottom: 20vh;
+  left: 50%;
+  width: 100%;
+  margin-left: calc(50% - calc($gridSize/2));
+  transform: translate(-50%);
+}
+
+.item-notification-action-box {
+  width: 100%;
+  color: $textColor;
+  background-color: $secondaryColor;
+  text-transform: uppercase;
+  text-align: center;
+  border-top-left-radius: 0.25vh;
+  border-top-right-radius: 0.25vh;
+  font-family: $mainFont;
+  p {
+    font-size: 11px;
+    padding: 2px;
+    font-weight: 600;
+  }
+}
+
+.item-notification-item-box {
+  @extend .inventory-slot;
+  height: $gridSize;
+  width: $gridSize;
+}
+
+.durability-bar {
+  background: rgba(0, 0, 0, 0.5);
+  height: 4px;
+  overflow: hidden;
+}
+
+.weight-bar {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px inset rgba(0, 0, 0, 0.1);
+  height: 0.8vh;
+  border-radius: 5%;
+  overflow: hidden;
+}
+
+.transition-fade-enter {
+  opacity: 0;
+}
+
+.transition-fade-enter-active {
+  opacity: 1;
+  transition: opacity 200ms;
+}
+
+.transition-fade-exit {
+  opacity: 1;
+}
+
+.transition-fade-exit-active {
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
+.transition-slide-up-enter {
+  transform: translateY(200px)
+}
+
+.transition-slide-up-enter-active {
+  transform: translateY(0px);
+  transition: all 200ms;
+}
+
+.transition-slide-up-exit {
+  transform: translateY(0px);
+}
+
+.transition-slide-up-exit-active {
+  transform: translateY(200px);
+  transition: all 200ms;
+}
