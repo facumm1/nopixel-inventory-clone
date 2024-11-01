@@ -21,73 +21,201 @@ export const InventoryInformation = () => {
         </div>
       </div>
 
-      {/* Body image */}
-      <div className="character-tracers">
-        <img src={nopixelBody} alt="bodyimage" className="body-image" />
+      <div style={{ display: 'flex', marginTop: '27.5px', justifyContent: 'space-between', alignItems: 'center' }}>
+        {/* Left hot bar pocket */}
+        <div>
+          <div
+            className="inventory-slot"
+            style={{
+              marginBottom: '12px',
+              height: '9vh',
+              width: '9vh',
+              filter: 'brightness(80%) grayscale(100%)',
+              background: `radial-gradient(83% 83% at 50% 50%, rgba(180, 180, 180, 0.158), rgba(120, 120, 120, 0.05)),
+                         no-repeat center / 7vh`,
+            }}
+          ></div>
 
-        <div className="left-leg part" style={{ alignItems: 'flex-end' }}>
-          <div style={{ marginBottom: '-20px' }}>
-            <span className="body-part">Left Leg</span>
+          <div
+            className="inventory-slot"
+            style={{
+              marginBottom: '12px',
+              height: '9vh',
+              width: '9vh',
+              filter: 'brightness(80%) grayscale(100%)',
+              background: `radial-gradient(83% 83% at 50% 50%, rgba(180, 180, 180, 0.158), rgba(120, 120, 120, 0.05)),
+                         no-repeat center / 7vh`,
+            }}
+          ></div>
 
-            <div className="bar">
-              <div className="progress"></div>
-            </div>
-          </div>
+          <div
+            className="inventory-slot"
+            style={{
+              marginBottom: '12px',
+              height: '9vh',
+              width: '9vh',
+              filter: 'brightness(80%) grayscale(100%)',
+              background: `radial-gradient(83% 83% at 50% 50%, rgba(180, 180, 180, 0.158), rgba(120, 120, 120, 0.05)),
+                         no-repeat center / 7vh`,
+            }}
+          ></div>
 
-          <img src={noPixelLine} style={{ width: '8rem', objectFit: 'cover' }} />
+          <div
+            className="inventory-slot"
+            style={{
+              marginBottom: '12px',
+              height: '9vh',
+              width: '9vh',
+              filter: 'brightness(80%) grayscale(100%)',
+              background: `radial-gradient(83% 83% at 50% 50%, rgba(180, 180, 180, 0.158), rgba(120, 120, 120, 0.05)),
+                         no-repeat center / 7vh`,
+            }}
+          ></div>
+
+          <div
+            className="inventory-slot"
+            style={{
+              marginBottom: '12px',
+              height: '9vh',
+              width: '9vh',
+              filter: 'brightness(80%) grayscale(100%)',
+              background: `radial-gradient(83% 83% at 50% 50%, rgba(180, 180, 180, 0.158), rgba(120, 120, 120, 0.05)),
+                         no-repeat center / 7vh`,
+            }}
+          ></div>
         </div>
 
-        <div className="right-leg part" style={{ alignItems: 'flex-start' }}>
-          <div style={{ marginBottom: '-20px' }}>
-            <span className="body-part">Right Leg</span>
-            <div className="bar">
-              <div className="progress"></div>
+        {/* Body image */}
+        <div className="character-tracers">
+          <img src={nopixelBody} alt="bodyimage" className="body-image" />
+
+          <div className="left-leg part" style={{ alignItems: 'flex-end' }}>
+            <div style={{ marginBottom: '-20px' }}>
+              <span className="body-part">Left Leg</span>
+
+              <div className="bar">
+                <div className="progress"></div>
+              </div>
             </div>
+
+            <img src={noPixelLine} style={{ width: '8rem', objectFit: 'cover' }} />
           </div>
 
-          <img src={noPixelLine2} style={{ width: '8rem', objectFit: 'cover' }} />
+          <div className="right-leg part" style={{ alignItems: 'flex-start' }}>
+            <div style={{ marginBottom: '-20px' }}>
+              <span className="body-part">Right Leg</span>
+              <div className="bar">
+                <div className="progress"></div>
+              </div>
+            </div>
+
+            <img src={noPixelLine2} style={{ width: '8rem', objectFit: 'cover' }} />
+          </div>
+
+          <div className="body part" style={{ alignItems: 'flex-end' }}>
+            <div style={{ marginBottom: '-20px' }}>
+              <span className="body-part">Body</span>
+              <div className="bar">
+                <div className="progress"></div>
+              </div>
+            </div>
+
+            <img src={noPixelLine} style={{ width: '8rem', objectFit: 'cover' }} />
+          </div>
+
+          <div className="right-arm part" style={{ alignItems: 'flex-start' }}>
+            <div style={{ marginBottom: '-20px' }}>
+              <span className="body-part">Right arm</span>
+              <div className="bar">
+                <div className="progress"></div>
+              </div>
+            </div>
+
+            <img src={noPixelLine2} style={{ width: '8rem', objectFit: 'cover' }} />
+          </div>
+
+          <div className="left-arm part" style={{ alignItems: 'flex-end' }}>
+            <div style={{ marginBottom: '-20px' }}>
+              <span className="body-part">Left arm</span>
+              <div className="bar">
+                <div className="progress"></div>
+              </div>
+            </div>
+            <img src={noPixelLine} style={{ width: '8rem', objectFit: 'cover' }} />
+          </div>
+
+          <div className="head part" style={{ alignItems: 'flex-end' }}>
+            <div style={{ marginBottom: '-20px' }}>
+              <span className="body-part">Head</span>
+              <div className="bar">
+                <div className="progress"></div>
+              </div>
+            </div>
+            <img src={noPixelLine} style={{ width: '8rem', objectFit: 'cover' }} />
+          </div>
         </div>
 
-        <div className="body part" style={{ alignItems: 'flex-end' }}>
-          <div style={{ marginBottom: '-20px' }}>
-            <span className="body-part">Body</span>
-            <div className="bar">
-              <div className="progress"></div>
-            </div>
-          </div>
+        {/* Right hidden pocket */}
+        <div>
+          <div
+            className="inventory-slot"
+            style={{
+              marginBottom: '12px',
+              height: '9vh',
+              width: '9vh',
+              filter: 'brightness(80%) grayscale(100%)',
+              background: `radial-gradient(83% 83% at 50% 50%, rgba(180, 180, 180, 0.158), rgba(120, 120, 120, 0.05)),
+                         no-repeat center / 7vh`,
+            }}
+          ></div>
 
-          <img src={noPixelLine} style={{ width: '8rem', objectFit: 'cover' }} />
-        </div>
+          <div
+            className="inventory-slot"
+            style={{
+              marginBottom: '12px',
+              height: '9vh',
+              width: '9vh',
+              filter: 'brightness(80%) grayscale(100%)',
+              background: `radial-gradient(83% 83% at 50% 50%, rgba(180, 180, 180, 0.158), rgba(120, 120, 120, 0.05)),
+                         no-repeat center / 7vh`,
+            }}
+          ></div>
 
-        <div className="right-arm part" style={{ alignItems: 'flex-start' }}>
-          <div style={{ marginBottom: '-20px' }}>
-            <span className="body-part">Right arm</span>
-            <div className="bar">
-              <div className="progress"></div>
-            </div>
-          </div>
+          <div
+            className="inventory-slot"
+            style={{
+              marginBottom: '12px',
+              height: '9vh',
+              width: '9vh',
+              filter: 'brightness(80%) grayscale(100%)',
+              background: `radial-gradient(83% 83% at 50% 50%, rgba(180, 180, 180, 0.158), rgba(120, 120, 120, 0.05)),
+                         no-repeat center / 7vh`,
+            }}
+          ></div>
 
-          <img src={noPixelLine2} style={{ width: '8rem', objectFit: 'cover' }} />
-        </div>
+          <div
+            className="inventory-slot"
+            style={{
+              marginBottom: '12px',
+              height: '9vh',
+              width: '9vh',
+              filter: 'brightness(80%) grayscale(100%)',
+              background: `radial-gradient(83% 83% at 50% 50%, rgba(180, 180, 180, 0.158), rgba(120, 120, 120, 0.05)),
+                         no-repeat center / 7vh`,
+            }}
+          ></div>
 
-        <div className="left-arm part" style={{ alignItems: 'flex-end' }}>
-          <div style={{ marginBottom: '-20px' }}>
-            <span className="body-part">Left arm</span>
-            <div className="bar">
-              <div className="progress"></div>
-            </div>
-          </div>
-          <img src={noPixelLine} style={{ width: '8rem', objectFit: 'cover' }} />
-        </div>
-
-        <div className="head part" style={{ alignItems: 'flex-end' }}>
-          <div style={{ marginBottom: '-20px' }}>
-            <span className="body-part">Head</span>
-            <div className="bar">
-              <div className="progress"></div>
-            </div>
-          </div>
-          <img src={noPixelLine} style={{ width: '8rem', objectFit: 'cover' }} />
+          <div
+            className="inventory-slot"
+            style={{
+              marginBottom: '12px',
+              height: '9vh',
+              width: '9vh',
+              filter: 'brightness(80%) grayscale(100%)',
+              background: `radial-gradient(83% 83% at 50% 50%, rgba(180, 180, 180, 0.158), rgba(120, 120, 120, 0.05)),
+                         no-repeat center / 7vh`,
+            }}
+          ></div>
         </div>
       </div>
 

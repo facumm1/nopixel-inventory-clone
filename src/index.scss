@@ -5,7 +5,7 @@ $textColor: #c1c2c5;
 $mainFont: Roboto;
 
 $secondaryColor: rgba(12, 12, 12, 0.4);
-$secondaryColorHighlight: #33343F;
+$secondaryColorHighlight: #33343f;
 $secondaryColorLight: rgba(0, 0, 0, 0.5);
 $secondaryColorDark: rgba(12, 12, 12, 0.8);
 
@@ -78,7 +78,7 @@ input[type='number']::-webkit-outer-spin-button {
   flex-direction: column;
 }
 
-.context-menu-item  {
+.context-menu-item {
   padding: 8px;
   border-radius: 4px;
   background-color: transparent;
@@ -139,8 +139,9 @@ button:active {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  //align-items: center;
   height: 100%;
-  width: 20vw;
+  width: 27.5vw;
 }
 
 .exit_box {
@@ -151,13 +152,13 @@ button:active {
 
 .exit {
   padding: 5px 15px;
-  border: 1px solid rgba(255, 254, 254,0.1);
+  border: 1px solid rgba(255, 254, 254, 0.1);
   font-size: 14px;
 }
 
 .escape {
   padding: 5px 15px;
-  background-color: rgba(255, 254, 254,0.1);
+  background-color: rgba(255, 254, 254, 0.1);
   font-size: 14px;
 }
 
@@ -184,50 +185,50 @@ button:active {
 }
 
 .body_icon_box {
-    display: block;
-	  position: static;
-    width: 3rem;
-    height: 3rem;
-	  left: 3%;
-	  top: 14.7%;
-	  text-align: center;
-	  font-size: 23px;
-    background: url(https://i.ibb.co/b27LQT8/image.png);
-    background-size: 100%;
-    background-repeat: no-repeat;
+  display: block;
+  position: static;
+  width: 3rem;
+  height: 3rem;
+  left: 3%;
+  top: 14.7%;
+  text-align: center;
+  font-size: 23px;
+  background: url(https://i.ibb.co/b27LQT8/image.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 .body_icon_box::before {
-    content: ' ';
-    position: absolute;
-    width: 3rem;
-    height: 3rem;
-    display: block;
-    background-image: url(https://i.ibb.co/x2Gx1B4/image.png);
-    background-size: 100%;
-    background-repeat: no-repeat;
+  content: ' ';
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+  display: block;
+  background-image: url(https://i.ibb.co/x2Gx1B4/image.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 // Icon player
 .body_icon_box::after {
-    content: ' ';
-    position: absolute;
-    width: 1.3rem;
-    height: 1.3rem;
-    display: block;
-    color: #00f8b9;
-    left: 3.5%;
-	  top: 28%;
-    font-size: 1rem;
-    background-image:url(https://i.ibb.co/0m2QTn3/image.png);
-    background-size: 100%;
-    background-repeat: no-repeat;
+  content: ' ';
+  position: absolute;
+  width: 1.3rem;
+  height: 1.3rem;
+  display: block;
+  color: #00f8b9;
+  left: 3.5%;
+  top: 28%;
+  font-size: 1rem;
+  background-image: url(https://i.ibb.co/0m2QTn3/image.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 // Body image
 .body-image {
-    width: 248px;
-    height: 478px;
+  width: 248px;
+  height: 478px;
 }
 
 .character-tracers {
@@ -251,7 +252,7 @@ button:active {
   border-radius: 3px;
 }
 
-.body-part {  
+.body-part {
   color: #f1f1f1;
   font-size: 0.74rem;
   text-align: center;
@@ -266,13 +267,13 @@ button:active {
 .left-leg {
   position: absolute;
   bottom: 1%;
-  left: 56%;
+  right: -10%;
 }
 
 .right-leg {
   position: absolute;
   bottom: 1%;
-  left: 15%;
+  left: -5%;
 }
 
 .body {
@@ -284,19 +285,19 @@ button:active {
 .right-arm {
   position: absolute;
   top: 23%;
-  left: 8%;
+  left: -15%; 
 }
 
 .left-arm {
   position: absolute;
   top: 13%;
-  right: 3%;
+  right: -20%;
 }
 
 .head {
   position: absolute;
   top: -2%;
-  right: 14%;
+  right: -5%;
 }
 
 // Player information
@@ -324,15 +325,15 @@ button:active {
   display: flex;
   align-items: center;
   justify-content: center;
-	position: static;
-	width: 50px;
-	height: 50px;
-	/* padding: 9.5px;
+  position: static;
+  width: 50px;
+  height: 50px;
+  /* padding: 9.5px;
 	right: 66.2%;
 	top: 14.7%; */
-	text-align: center;
-	/* font-size: 23px; */
-	color: #31d4a9;
+  text-align: center;
+  /* font-size: 23px; */
+  color: #31d4a9;
   background: url(https://i.ibb.co/x2Gx1B4/image.png);
   background-size: 100%;
   background-repeat: no-repeat;
@@ -493,7 +494,6 @@ button:active {
 
 // Dialog is used fro useful controls window
 
-
 // inventory grids
 .inventory-grid-wrapper {
   display: flex;
@@ -523,13 +523,10 @@ button:active {
 
 // inventory slots
 .inventory-slot {
-  background-color: $secondaryColor;
-  background-repeat: no-repeat;
-  background-position: center;
-  border-radius: 2.5%;
+  margin: 6px;
+  border-radius: 5%;
   image-rendering: -webkit-optimize-contrast;
   position: relative;
-  background-size: 7vh;
   color: $textColor;
   border-color: rgba(0, 0, 0, 0.2);
   border-style: inset;
@@ -560,7 +557,7 @@ button:active {
 }
 
 .inventory-slot-number {
-  background-color: #002A24;
+  background-color: #002a24;
   color: black;
   height: 12px;
   border-top-left-radius: 0.25vh;
@@ -624,7 +621,6 @@ button:active {
     text-shadow: 0.1vh 0.1vh 0 rgba(0, 0, 0, 0.7);
   }
 }
-
 
 .tooltip-wrapper {
   pointer-events: none;
@@ -778,7 +774,7 @@ button:active {
 }
 
 .transition-slide-up-enter {
-  transform: translateY(200px)
+  transform: translateY(200px);
 }
 
 .transition-slide-up-enter-active {
